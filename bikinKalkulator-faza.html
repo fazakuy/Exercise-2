@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Alat hitung sederhana ver 2.0</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1> <marquee scrollamount="12" behavior="alternate" direction="">--SELAMAT DATANG DI ALAT HITUNG SEDERHANA--</marquee></h1>
+            <div class="mx-auto" style="width: 200px">
+                First number <input type="number" id="angkaPertama"><br>
+                <input type="button" value="+" id="penjumlahan" class="btn btn-primary">
+                <input type="button" value="-" id="pengurangan" class="btn btn-secondary">
+                <input type="button" value="*" id="perkalian" class="btn btn-warning">
+                <input type="button" value="/" id="pembagian" class="btn btn-info"><br>
+                Second number <input type="number" id="angkaKedua"><br>
+                <input type="button" value="=" id="hasil" class="btn btn-dark"><br>
+                <input type="text" id="rest">
+            </div>
+        </div>
+        <script>
+            var valAngkaPertama;
+            var valAngkaKedua;
+            var hasil;
+            var newbietus;
+            document.getElementById("penjumlahan").addEventListener("click",function(){
+                newbietus = "tambah";
+            });
+            document.getElementById("pengurangan").addEventListener("click",function(){
+                newbietus = "kurang";
+            });
+            document.getElementById("perkalian").addEventListener("click",function(){
+                newbietus = "kali";
+            });
+            document.getElementById("pembagian").addEventListener("click",function(){
+                newbietus = "bagi";
+            });
+            document.getElementById("hasil").addEventListener("click",function(){
+                valAngkaPertama = document.getElementById("angkaPertama").value;
+                valAngkaKedua = document.getElementById("angkaKedua").value;
+                if(newbietus == "tambah") {
+                    hasil = parseInt(valAngkaPertama) + parseInt(valAngkaKedua);
+                } else if(newbietus == "kurang") {
+                    hasil = parseInt(valAngkaPertama) - parseInt(valAngkaKedua);
+                } else if(newbietus == "kali") {
+                    hasil = parseInt(valAngkaPertama) * parseInt(valAngkaKedua);
+                } else if(newbietus == "bagi") {
+                    hasil = parseInt(valAngkaPertama) / parseInt(valAngkaKedua);
+                }
+                document.getElementById("rest").value = hasil;
+            })
+        </script>
+    </body>
+</html>
